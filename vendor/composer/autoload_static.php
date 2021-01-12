@@ -108,6 +108,8 @@ class ComposerStaticInitf0c9c6df9308c5a32a98f6c2e11db4d0
         ),
         'D' => 
         array (
+            'Drupal\\realistic_dummy_content_api\\' => 35,
+            'Drupal\\realistic_dummy_content\\' => 31,
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
@@ -305,6 +307,14 @@ class ComposerStaticInitf0c9c6df9308c5a32a98f6c2e11db4d0
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
+        ),
+        'Drupal\\realistic_dummy_content_api\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/realistic_dummy_content/api/src',
+        ),
+        'Drupal\\realistic_dummy_content\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/realistic_dummy_content/src',
         ),
         'Drupal\\Driver\\' => 
         array (
