@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'b3322ca35662e0a3a392e79ae88a37be6da1b8f0',
+    'reference' => '32609d2ce45a8eea518753fe2f79c812caaa5966',
     'name' => 'drupal/recommended-project',
   ),
   'versions' => 
@@ -855,7 +855,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'b3322ca35662e0a3a392e79ae88a37be6da1b8f0',
+      'reference' => '32609d2ce45a8eea518753fe2f79c812caaa5966',
     ),
     'drupal/responsive_image' => 
     array (
@@ -1033,6 +1033,15 @@ private static $installed = array (
       array (
         0 => '9.1.2',
       ),
+    ),
+    'drupal/zuvi' => 
+    array (
+      'pretty_version' => '1.5.0',
+      'version' => '1.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8.x-1.5',
     ),
     'egulias/email-validator' => 
     array (
