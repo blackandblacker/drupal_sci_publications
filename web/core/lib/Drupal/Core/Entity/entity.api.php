@@ -1870,7 +1870,7 @@ function hook_entity_base_field_info(\Drupal\Core\Entity\EntityTypeInterface $en
     $fields = [];
     $fields['mymodule_text'] = BaseFieldDefinition::create('string')
       ->setLabel(t('The text'))
-      ->setDescription(t('A text property added by mymodule.'))
+      ->setDescription(t('A text property added by my_first_module.'))
       ->setComputed(TRUE)
       ->setClass('\Drupal\mymodule\EntityComputedText');
 

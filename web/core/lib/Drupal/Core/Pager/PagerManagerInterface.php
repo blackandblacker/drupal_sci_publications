@@ -44,7 +44,7 @@ interface PagerManagerInterface {
    * @code
    *   // First find the total number of items and initialize the pager.
    *   $total = mymodule_select("SELECT COUNT(*) FROM data WHERE status = 1")->result();
-   *   $num_per_page = \Drupal::config('mymodule.settings')->get('num_per_page');
+   *   $num_per_page = \Drupal::config('my_first_module.settings')->get('num_per_page');
    *   $pager = \Drupal::service('pager.manager')->createPager($total, $num_per_page);
    *   $page = $pager->getCurrentPage();
    *
@@ -76,7 +76,7 @@ interface PagerManagerInterface {
    *   // page of results that will exist within the set.
    *   $pager_parameters = \Drupal::service('pager.parameters');
    *   $page = $pager_parameters->findPage();
-   *   $num_per_page = \Drupal::config('mymodule.settings')->get('num_per_page');
+   *   $num_per_page = \Drupal::config('my_first_module.settings')->get('num_per_page');
    *   $offset = $num_per_page * $page;
    *   $result = mymodule_remote_search($keywords, $offset, $num_per_page);
    *

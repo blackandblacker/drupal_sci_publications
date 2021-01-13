@@ -40,8 +40,8 @@ use Drupal\Core\Utility\UpdateException;
  *
  * @section sec_how How to write update code
  * Update code for a module is put into an implementation of hook_update_N(),
- * which goes into file mymodule.install (if your module's machine name is
- * mymodule). See the documentation of hook_update_N() and
+ * which goes into file my_first_module.install (if your module's machine name is
+ * my_first_module). See the documentation of hook_update_N() and
  * https://www.drupal.org/node/2535316 for details and examples.
  *
  * @section sec_test Testing update code
@@ -190,10 +190,10 @@ function hook_module_preinstall($module) {
  */
 function hook_modules_installed($modules, $is_syncing) {
   if (in_array('lousy_module', $modules)) {
-    \Drupal::state()->set('mymodule.lousy_module_compatibility', TRUE);
+    \Drupal::state()->set('my_first_module.lousy_module_compatibility', TRUE);
   }
   if (!$is_syncing) {
-    \Drupal::service('mymodule.service')->doSomething($modules);
+    \Drupal::service('my_first_module.service')->doSomething($modules);
   }
 }
 
@@ -241,7 +241,7 @@ function hook_modules_installed($modules, $is_syncing) {
  */
 function hook_install($is_syncing) {
   // Set general module variables.
-  \Drupal::state()->set('mymodule.foo', 'bar');
+  \Drupal::state()->set('my_first_module.foo', 'bar');
 }
 
 /**
@@ -276,11 +276,11 @@ function hook_module_preuninstall($module) {
  */
 function hook_modules_uninstalled($modules, $is_syncing) {
   if (in_array('lousy_module', $modules)) {
-    \Drupal::state()->delete('mymodule.lousy_module_compatibility');
+    \Drupal::state()->delete('my_first_module.lousy_module_compatibility');
   }
   mymodule_cache_rebuild();
   if (!$is_syncing) {
-    \Drupal::service('mymodule.service')->doSomething($modules);
+    \Drupal::service('my_first_module.service')->doSomething($modules);
   }
 }
 
@@ -311,7 +311,7 @@ function hook_modules_uninstalled($modules, $is_syncing) {
  */
 function hook_uninstall($is_syncing) {
   // Delete remaining general module variables.
-  \Drupal::state()->delete('mymodule.foo');
+  \Drupal::state()->delete('my_first_module.foo');
 }
 
 /**
@@ -512,7 +512,7 @@ function hook_install_tasks_alter(&$tasks, $install_state) {
  * @section sec_naming Naming and documenting your function
  * For each change in a module that requires one or more actions to be performed
  * when updating a site, add a new implementation of hook_update_N() to your
- * mymodule.install file (assuming mymodule is the machine name of your module).
+ * my_first_module.install file (assuming my_first_module is the machine name of your module).
  * Implementations of hook_update_N() are named (module name)_update_(number).
  * The numbers are normally composed of three parts:
  * - 1 or 2 digits for Drupal core compatibility (Drupal 8, 9, 10, etc.). This
@@ -787,8 +787,8 @@ function hook_removed_post_updates() {
  * system to determine the appropriate order in which updates should be run, as
  * well as to search for missing dependencies.
  *
- * Implementations of this hook should be placed in a mymodule.install file in
- * the same directory as mymodule.module.
+ * Implementations of this hook should be placed in a my_first_module.install file in
+ * the same directory as my_first_module.module.
  *
  * @return
  *   A multidimensional array containing information about the module update
@@ -810,7 +810,7 @@ function hook_update_dependencies() {
   // Indicate that the mymodule_update_8001() function provided by this module
   // must run after the another_module_update_8003() function provided by the
   // 'another_module' module.
-  $dependencies['mymodule'][8001] = [
+  $dependencies['my_first_module'][8001] = [
     'another_module' => 8003,
   ];
   // Indicate that the mymodule_update_8002() function provided by this module
@@ -819,9 +819,9 @@ function hook_update_dependencies() {
   // direction should be done only in rare situations, since it can lead to the
   // following problem: If a site has already run the yet_another_module
   // module's database updates before it updates its codebase to pick up the
-  // newest mymodule code, then the dependency declared here will be ignored.)
+  // newest my_first_module code, then the dependency declared here will be ignored.)
   $dependencies['yet_another_module'][8005] = [
-    'mymodule' => 8002,
+    'my_first_module' => 8002,
   ];
   return $dependencies;
 }
@@ -829,23 +829,23 @@ function hook_update_dependencies() {
 /**
  * Return a number which is no longer available as hook_update_N().
  *
- * If you remove some update functions from your mymodule.install file, you
+ * If you remove some update functions from your my_first_module.install file, you
  * should notify Drupal of those missing functions. This way, Drupal can
  * ensure that no update is accidentally skipped.
  *
- * Implementations of this hook should be placed in a mymodule.install file in
- * the same directory as mymodule.module.
+ * Implementations of this hook should be placed in a my_first_module.install file in
+ * the same directory as my_first_module.module.
  *
  * @return
  *   An integer, corresponding to hook_update_N() which has been removed from
- *   mymodule.install.
+ *   my_first_module.install.
  *
  * @ingroup update_api
  *
  * @see hook_update_N()
  */
 function hook_update_last_removed() {
-  // We've removed the 8.x-1.x version of mymodule, including database updates.
+  // We've removed the 8.x-1.x version of my_first_module, including database updates.
   // The next update function is mymodule_update_8200().
   return 8103;
 }

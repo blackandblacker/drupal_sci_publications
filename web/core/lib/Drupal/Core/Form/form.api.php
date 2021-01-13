@@ -204,7 +204,7 @@ function hook_ajax_render_alter(array &$data) {
  */
 function hook_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if (isset($form['type']) && $form['type']['#value'] . '_node_settings' == $form_id) {
-    $upload_enabled_types = \Drupal::config('mymodule.settings')->get('upload_enabled_types');
+    $upload_enabled_types = \Drupal::config('my_first_module.settings')->get('upload_enabled_types');
     $form['workflow']['upload_' . $form['type']['#value']] = [
       '#type' => 'radios',
       '#title' => t('Attachments'),

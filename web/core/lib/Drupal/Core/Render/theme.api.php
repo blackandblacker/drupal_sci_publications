@@ -874,31 +874,31 @@ function hook_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterface 
 function hook_library_info_build() {
   $libraries = [];
   // Add a library whose information changes depending on certain conditions.
-  $libraries['mymodule.zombie'] = [
+  $libraries['my_first_module.zombie'] = [
     'dependencies' => [
       'core/backbone',
     ],
   ];
   if (Drupal::moduleHandler()->moduleExists('minifyzombies')) {
-    $libraries['mymodule.zombie'] += [
+    $libraries['my_first_module.zombie'] += [
       'js' => [
-        'mymodule.zombie.min.js' => [],
+        'my_first_module.zombie.min.js' => [],
       ],
       'css' => [
         'base' => [
-          'mymodule.zombie.min.css' => [],
+          'my_first_module.zombie.min.css' => [],
         ],
       ],
     ];
   }
   else {
-    $libraries['mymodule.zombie'] += [
+    $libraries['my_first_module.zombie'] += [
       'js' => [
-        'mymodule.zombie.js' => [],
+        'my_first_module.zombie.js' => [],
       ],
       'css' => [
         'base' => [
-          'mymodule.zombie.css' => [],
+          'my_first_module.zombie.css' => [],
         ],
       ],
     ];
@@ -910,7 +910,7 @@ function hook_library_info_build() {
   // the library (of course) not be loaded but no notices or errors will be
   // triggered.
   if (Drupal::moduleHandler()->moduleExists('vampirize')) {
-    $libraries['mymodule.vampire'] = [
+    $libraries['my_first_module.vampire'] = [
       'js' => [
         'js/vampire.js' => [],
       ],
@@ -1090,7 +1090,7 @@ function hook_page_attachments_alter(array &$attachments) {
  *   A renderable array representing the top of the page.
  */
 function hook_page_top(array &$page_top) {
-  $page_top['mymodule'] = ['#markup' => 'This is the top.'];
+  $page_top['my_first_module'] = ['#markup' => 'This is the top.'];
 }
 
 /**
@@ -1100,7 +1100,7 @@ function hook_page_top(array &$page_top) {
  *   A renderable array representing the bottom of the page.
  */
 function hook_page_bottom(array &$page_bottom) {
-  $page_bottom['mymodule'] = ['#markup' => 'This is the bottom.'];
+  $page_bottom['my_first_module'] = ['#markup' => 'This is the bottom.'];
 }
 
 /**

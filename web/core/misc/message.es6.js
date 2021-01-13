@@ -74,7 +74,7 @@
      *   The context of the message.
      * @param {string} [options.id]
      *   The message ID, it can be a simple value: `'filevalidationerror'`
-     *   or several values separated by a space: `'mymodule formvalidation'`
+     *   or several values separated by a space: `'my_first_module formvalidation'`
      *   which can be used as an explicit selector for a message.
      * @param {string} [options.type=status]
      *   Message type, can be either 'status', 'error' or 'warning'.

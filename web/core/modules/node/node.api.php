@@ -418,7 +418,7 @@ function hook_ranking() {
  * @see entity_crud
  */
 function hook_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
-  $links['mymodule'] = [
+  $links['my_first_module'] = [
     '#theme' => 'links__node__mymodule',
     '#attributes' => ['class' => ['links', 'inline']],
     '#links' => [

@@ -31,7 +31,7 @@ use Drupal\Core\Url;
  * @see \Drupal\comment\CommentViewBuilder::buildLinks()
  */
 function hook_comment_links_alter(array &$links, CommentInterface $entity, array &$context) {
-  $links['mymodule'] = [
+  $links['my_first_module'] = [
     '#theme' => 'links__comment__mymodule',
     '#attributes' => ['class' => ['links', 'inline']],
     '#links' => [

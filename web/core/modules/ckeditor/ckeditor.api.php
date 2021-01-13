@@ -53,7 +53,7 @@ function hook_ckeditor_plugin_info_alter(array &$plugins) {
  * @see _ckeditor_theme_css()
  */
 function hook_ckeditor_css_alter(array &$css, Editor $editor) {
-  $css[] = drupal_get_path('module', 'mymodule') . '/css/mymodule-ckeditor.css';
+  $css[] = drupal_get_path('module', 'my_first_module') . '/css/my_first_module-ckeditor.css';
 }
 
 /**

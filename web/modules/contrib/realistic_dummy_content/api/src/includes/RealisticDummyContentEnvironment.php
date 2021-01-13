@@ -137,7 +137,7 @@ abstract class RealisticDummyContentEnvironment {
    * @param string $filepath
    *   An absolute filepath on the system, for example
    *   /path/to/drupal/sites/all/
-   *   modules/mymodule/realistic_dummy_content/fields/node/article/body.
+   *   modules/my_first_module/realistic_dummy_content/fields/node/article/body.
    * @param array $extensions
    *   An array of extensions which should be taken into consideration.
    *

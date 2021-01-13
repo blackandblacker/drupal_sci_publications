@@ -220,7 +220,7 @@
  *
  * Configuration is divided into individual objects, each of which has a
  * unique name or key. Some modules will have only one configuration object,
- * typically called 'mymodule.settings'; some modules will have many. Within
+ * typically called 'my_first_module.settings'; some modules will have many. Within
  * a configuration object, configuration settings have data types (integer,
  * string, Boolean, etc.) and settings can also exist in a nested hierarchy,
  * known as a "mapping".
@@ -283,10 +283,10 @@
  * The first task in using the simple configuration API is to define the
  * configuration file structure, file name, and schema of your settings (see
  * @ref sec_yaml above). Once you have done that, you can retrieve the active
- * configuration object that corresponds to configuration file mymodule.foo.yml
+ * configuration object that corresponds to configuration file my_first_module.foo.yml
  * with a call to:
  * @code
- * $config = \Drupal::config('mymodule.foo');
+ * $config = \Drupal::config('my_first_module.foo');
  * @endcode
  *
  * This will be an object of class \Drupal\Core\Config\Config, which has methods
@@ -313,7 +313,7 @@
  * you will instead need to get the Config object by making a call to
  * getEditable() on the config factory:
  * @code
- * $config =\Drupal::service('config.factory')->getEditable('mymodule.foo');
+ * $config =\Drupal::service('config.factory')->getEditable('my_first_module.foo');
  * @endcode
  *
  * Individual configuration values can be changed or added using the set()
@@ -1408,8 +1408,8 @@
  *   class and the parent (default) plugin manager service to inherit
  *   constructor arguments:
  *   @code
- *   plugin.manager.mymodule:
- *     class: Drupal\mymodule\MyPluginManager
+ *   plugin.manager.my_first_module:
+ *     class: Drupal\my_first_module\MyPluginManager
  *     parent: default_plugin_manager
  *   @endcode
  * - If your plugin is configurable, you will also need to define the
@@ -1694,7 +1694,7 @@
  *
  * Here is an example of a Form class:
  * @code
- * namespace Drupal\mymodule\Form;
+ * namespace Drupal\my_first_module\Form;
  *
  * use Drupal\Core\Form\FormBase;
  * use Drupal\Core\Form\FormStateInterface;
@@ -1732,7 +1732,7 @@
  * \Drupal::formBuilder()->getForm() should be used to handle retrieving,
  * processing, and displaying a rendered HTML form. Given the ExampleForm
  * defined above,
- * \Drupal::formBuilder()->getForm('Drupal\mymodule\Form\ExampleForm') would
+ * \Drupal::formBuilder()->getForm('Drupal\my_first_module\Form\ExampleForm') would
  * return the rendered HTML of the form defined by ExampleForm::buildForm(), or
  * call the validateForm() and submitForm(), methods depending on the current
  * processing state.
@@ -1745,7 +1745,7 @@
  * For example:
  * @code
  * $extra = '612-123-4567';
- * $form = \Drupal::formBuilder()->getForm('Drupal\mymodule\Form\ExampleForm', $extra);
+ * $form = \Drupal::formBuilder()->getForm('Drupal\my_first_module\Form\ExampleForm', $extra);
  * ...
  * public function buildForm(array $form, FormStateInterface $form_state, $extra = NULL)
  *   $form['phone_number'] = array(
@@ -1767,7 +1767,7 @@
  *   path: '/example-form'
  *   defaults:
  *     _title: 'Example form'
- *     _form: '\Drupal\mymodule\Form\ExampleForm'
+ *     _form: '\Drupal\my_first_module\Form\ExampleForm'
  * @endcode
  *
  * The $form argument to form-related functions is a specialized render array
@@ -1915,11 +1915,11 @@
 function hook_cron() {
   // Short-running operation example, not using a queue:
   // Delete all expired records since the last cron run.
-  $expires = \Drupal::state()->get('mymodule.last_check', 0);
+  $expires = \Drupal::state()->get('my_first_module.last_check', 0);
   \Drupal::database()->delete('mymodule_table')
     ->condition('expires', $expires, '>=')
     ->execute();
-  \Drupal::state()->set('mymodule.last_check', REQUEST_TIME);
+  \Drupal::state()->set('my_first_module.last_check', REQUEST_TIME);
 
   // Long-running operation example, leveraging a queue:
   // Queue news feeds for updates once their refresh interval has elapsed.
@@ -2571,8 +2571,8 @@ function hook_validation_constraint_alter(array &$definitions) {
  * @code
  * public function counter(Request $request) {
  *   $session = $request->getSession();
- *   $count = $session->get('mymodule.counter', 0) + 1;
- *   $session->set('mymodule.counter', $count);
+ *   $count = $session->get('my_first_module.counter', 0) + 1;
+ *   $session->set('my_first_module.counter', $count);
  *
  *   return [
  *     '#markup' => $this->t('Page Views: @count', ['@count' => $count]),
@@ -2584,7 +2584,7 @@ function hook_validation_constraint_alter(array &$definitions) {
  *
  * public function reset(Request $request) {
  *   $session = $request->getSession();
- *   $session->remove('mymodule.counter');
+ *   $session->remove('my_first_module.counter');
  * }
  * @endcode
  *

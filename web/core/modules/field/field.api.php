@@ -228,7 +228,7 @@ function hook_field_widget_WIDGET_TYPE_form_alter(&$element, \Drupal\Core\Form\F
   // Code here will only act on widgets of type WIDGET_TYPE.  For example,
   // hook_field_widget_mymodule_autocomplete_form_alter() will only act on
   // widgets of type 'mymodule_autocomplete'.
-  $element['#autocomplete_route_name'] = 'mymodule.autocomplete_route';
+  $element['#autocomplete_route_name'] = 'my_first_module.autocomplete_route';
 }
 
 /**
@@ -295,7 +295,7 @@ function hook_field_widget_multivalue_WIDGET_TYPE_form_alter(array &$elements, \
   // Change the autocomplete route for each autocomplete element within the
   // multivalue widget.
   foreach (Element::children($elements) as $delta => $element) {
-    $elements[$delta]['#autocomplete_route_name'] = 'mymodule.autocomplete_route';
+    $elements[$delta]['#autocomplete_route_name'] = 'my_first_module.autocomplete_route';
   }
 }
 
